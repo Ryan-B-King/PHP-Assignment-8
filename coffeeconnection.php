@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+<?php
+
+$firstName = '';
+$lastName = '';
+$email = '';
+$age = '';
+
+$msg = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstName = htmlspecialchars(trim($_POST['fname']));
+    $lastName = htmlspecialchars(trim($_POST['lname']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $age = $_POST['age'];
+}
+
+
+
+
+
+
+
+
+?>
+
+<!DOCTYPE html> <!-- Ryan King-->
 
 <html lang="en">
 <head>
@@ -46,20 +71,20 @@
         <section id="contact">
             <h2 class="center">Sign up to Receive Our Newsletter</h2>
             
-            <form action="#" method="post">
+            <form action="<?php print htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
            
               <div class="flexcontainer">
-               <label for="fname">First Name:</label> <input type="text" name="fname" id="fname">
+               <label for="fname">First Name:</label> <input type="text" name="fname" id="fname" value="<?php print $firstName;?>">
              </div>
              <p class="red">display error here</p>               
              
              <div class="flexcontainer">
-              <label for="lname">Last Name:</label> <input type="text" name="lname" id="lname">
+              <label for="lname">Last Name:</label> <input type="text" name="lname" id="lname" value="<?php print $lastName;?>">
              </div>
              <p class="red">display error here</p>
               
             <div class="flexcontainer">
-               <label for="email">Email:</label> <input type="email" name="email" id="email"> 
+               <label for="email">Email:</label> <input type="email" name="email" id="email" value="<?php print $email;?>"> 
             </div>
              <p class="red">display error here</p>            
  
